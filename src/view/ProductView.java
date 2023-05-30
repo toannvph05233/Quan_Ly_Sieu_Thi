@@ -274,14 +274,18 @@ public class ProductView extends JFrame implements ActionListener, ListSelection
 
     public void addAddProductListener(ActionListener listener) {
         addProductBtn.addActionListener(listener);
+        clearProductInfo();
     }
 
     public void addEditProductListener(ActionListener listener) {
         editProductBtn.addActionListener(listener);
+        clearProductInfo();
+
     }
 
     public void addDeleteProductListener(ActionListener listener) {
         deleteProductBtn.addActionListener(listener);
+        clearProductInfo();
     }
 
     public void addClearProductListener(ActionListener listener) {

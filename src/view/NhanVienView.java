@@ -267,14 +267,19 @@ public class NhanVienView extends JFrame implements ActionListener, ListSelectio
 
     public void addAddNhanVienListener(ActionListener listener) {
         addNhanVienBtn.addActionListener(listener);
+        clearNhanVienInfo();
+
     }
 
     public void addEditNhanVienListener(ActionListener listener) {
         editNhanVienBtn.addActionListener(listener);
+        clearNhanVienInfo();
+
     }
 
     public void addDeleteNhanVienListener(ActionListener listener) {
         deleteNhanVienBtn.addActionListener(listener);
+        clearNhanVienInfo();
     }
 
     public void addClearNhanVienListener(ActionListener listener) {

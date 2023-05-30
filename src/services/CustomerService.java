@@ -41,7 +41,7 @@ public class CustomerService {
     public boolean delete(Customer customer) {
         Customer customer1 = findById(customer.getId());
         if (customer1 != null) {
-            listCustomers.remove(customer);
+            listCustomers.remove(customer1);
             return true;
         }
         return false;

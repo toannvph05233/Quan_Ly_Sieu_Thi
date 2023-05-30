@@ -48,6 +48,8 @@ public class ProductController {
                 productService.add(Product);
                 ProductView.showListProducts(productService.getProducts());
                 ProductView.showMessage("Thêm thành công!");
+            }else {
+                ProductView.showMessage("Sai định dạng của Date VD: 22/2/2023!");
             }
         }
     }

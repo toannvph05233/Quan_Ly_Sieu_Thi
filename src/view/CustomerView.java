@@ -269,14 +269,17 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
 
     public void addAddCustomerListener(ActionListener listener) {
         addCustomerBtn.addActionListener(listener);
+        clearCustomerInfo();
     }
 
     public void addEditCustomerListener(ActionListener listener) {
         editCustomerBtn.addActionListener(listener);
+        clearCustomerInfo();
     }
 
     public void addDeleteCustomerListener(ActionListener listener) {
         deleteCustomerBtn.addActionListener(listener);
+        clearCustomerInfo();
     }
 
     public void addClearCustomerListener(ActionListener listener) {
