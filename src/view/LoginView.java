@@ -6,15 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.SpringLayout;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 
 public class LoginView extends JFrame implements ActionListener {
@@ -27,6 +19,8 @@ public class LoginView extends JFrame implements ActionListener {
     private JButton loginBtn;
     private JButton registerBtn;
 
+
+    // Tạo đường dẫn đến tập tin ảnh
     public LoginView() {
         initComponents();
     }
@@ -49,6 +43,17 @@ public class LoginView extends JFrame implements ActionListener {
         loginBtn.addActionListener(this);
         registerBtn.addActionListener(this);
 
+        ImageIcon imageIcon = new ImageIcon("src/img/sieuthi.jpeg");
+        Image image = imageIcon.getImage();
+        // Đặt kích thước mới cho ảnh
+        int newWidth = 400;
+        int newHeight = 300;
+        Image resizedImage = image.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+        // Tạo ImageIcon từ ảnh đã thay đổi kích thước
+        ImageIcon resizedImageIcon = new ImageIcon(resizedImage);
+        JLabel img = new JLabel(resizedImageIcon);
+
+
         // tạo spring layout
         SpringLayout layout = new SpringLayout();
         JPanel panel = new JPanel();
@@ -62,6 +67,7 @@ public class LoginView extends JFrame implements ActionListener {
         panel.add(passwordField);
         panel.add(loginBtn);
         panel.add(registerBtn);
+        panel.add(img);
 
         // cài đặt vị trí các thành phần trên màn hình login
         layout.putConstraint(SpringLayout.WEST, userNameLabel, 20, SpringLayout.WEST, panel);

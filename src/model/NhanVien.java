@@ -4,15 +4,14 @@ package model;
 public class NhanVien {
     private String userName;
     private String password;
-    private int age;
-    private String address;
-    private String phone;
+    private int age = 18;
+    private String address = "Việt Nam";
+    private String phone = "";
 
     public NhanVien() {
     }
 
     public NhanVien(String userName, String password) {
-        super();
         this.userName = userName;
         this.password = password;
     }

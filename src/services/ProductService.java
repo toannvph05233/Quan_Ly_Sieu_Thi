@@ -10,8 +10,8 @@ public class ProductService {
     List<Product> products = new ArrayList<>();
 
     public ProductService(){
-        products.add(new Product(1, "Khẩu trang", 20, 50, new Date()));
-        products.add(new Product(2, "Bò Húc", 1, 50, new Date()));
+        products.add(new Product(1, "CoCa-CoLa", 20, 50,"src/img/coca.jpeg", new Date()));
+        products.add(new Product(2, "Bò Húc", 1, 50,"src/img/bohuc.jpeg", new Date()));
     }
 
     public void add(Product product){
