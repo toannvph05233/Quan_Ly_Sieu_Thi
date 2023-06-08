@@ -1,7 +1,6 @@
 package view;
 
 
-
 import model.NhanVien;
 
 import javax.swing.*;
@@ -25,6 +24,8 @@ public class NhanVienView extends JFrame implements ActionListener, ListSelectio
     private JButton clearNhanVienBtn;
 
     private JButton logoutBtn;
+    private JButton manageNCC;
+
 
     private JScrollPane jScrollPaneNhanVienTable;
 
@@ -63,6 +64,7 @@ public class NhanVienView extends JFrame implements ActionListener, ListSelectio
         deleteNhanVienBtn = new JButton("Delete");
         clearNhanVienBtn = new JButton("Clear");
         logoutBtn = new JButton("Logout");
+        manageNCC = new JButton("ManageNACC");
 
 
         jScrollPaneNhanVienTable = new JScrollPane();
@@ -107,6 +109,7 @@ public class NhanVienView extends JFrame implements ActionListener, ListSelectio
 
 
         panel.add(logoutBtn);
+        panel.add(manageNCC);
 
         panel.add(usernameLabel);
         panel.add(NhanVienLabel);
@@ -167,6 +170,8 @@ public class NhanVienView extends JFrame implements ActionListener, ListSelectio
         layout.putConstraint(SpringLayout.NORTH, deleteNhanVienBtn, 220, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.NORTH, clearNhanVienBtn, 220, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, clearNhanVienBtn, 75, SpringLayout.WEST, deleteNhanVienBtn);
+        layout.putConstraint(SpringLayout.NORTH, manageNCC, 270, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.WEST, manageNCC, 95, SpringLayout.WEST, panel);
 
 
         this.add(panel);
@@ -233,7 +238,7 @@ public class NhanVienView extends JFrame implements ActionListener, ListSelectio
             if (username.equals("")) {
                 return null;
             }
-            return new NhanVien(username,password, age, address, phone);
+            return new NhanVien(username, password, age, address, phone);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -293,6 +298,10 @@ public class NhanVienView extends JFrame implements ActionListener, ListSelectio
 
     public void addListNhanVienSelectionListener(ListSelectionListener listener) {
         NhanVienTable.getSelectionModel().addListSelectionListener(listener);
+    }
+
+    public void showNCCListener(ActionListener listener) {
+        manageNCC.addActionListener(listener);
     }
 
 

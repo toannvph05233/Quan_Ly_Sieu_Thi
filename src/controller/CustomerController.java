@@ -4,6 +4,7 @@ import model.Customer;
 import services.CustomerService;
 import view.LoginView;
 import view.CustomerView;
+import view.ProductView;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -12,18 +13,21 @@ import java.awt.event.ActionListener;
 
 public class CustomerController {
     private CustomerView CustomerView;
+    private ProductView productView;
     private LoginView loginView;
     private CustomerService CustomerService;
 
-    public CustomerController(CustomerView CustomerView, LoginView loginView) {
+    public CustomerController(CustomerView CustomerView, LoginView loginView, ProductView productView) {
         this.loginView =loginView;
         this.CustomerView = CustomerView;
+        this.productView = productView;
         this.CustomerService = new CustomerService();
         CustomerView.addListCustomerSelectionListener(new ListCustomerSelectionListener());
         CustomerView.addAddCustomerListener(new AddCustomerListener());
         CustomerView.addClearCustomerListener(new ClearCustomerListener());
         CustomerView.addEditCustomerListener(new EditCustomerListener());
         CustomerView.addDeleteCustomerListener(new DeleteCustomerListener());
+        CustomerView.logoutCustomerListener(new LogoutCustomerListener());
         CustomerView.backCustomerListener(new BackCustomerListener());
         CustomerView.showListCustomers(CustomerService.getListCustomers());
 
@@ -67,13 +71,19 @@ public class CustomerController {
         }
     }
 
-    class BackCustomerListener implements ActionListener {
+    class LogoutCustomerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             CustomerView.setVisible(false);
             loginView.setVisible(true);
         }
     }
 
+    class BackCustomerListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            CustomerView.setVisible(false);
+            productView.setVisible(true);
+        }
+    }
 
     class DeleteCustomerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {

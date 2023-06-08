@@ -3,6 +3,7 @@ package controller;
 import model.NhanVien;
 import services.NhanVienService;
 import view.LoginView;
+import view.NhaCungCapView;
 import view.NhanVienView;
 
 import javax.swing.event.ListSelectionEvent;
@@ -14,9 +15,11 @@ public class NhanVienController {
     private NhanVienView NhanVienView;
     private LoginView loginView;
     private NhanVienService NhanVienService;
+    private NhaCungCapView  nhaCungCapView;
 
-    public NhanVienController(NhanVienView NhanVienView, LoginView loginView) {
+    public NhanVienController(NhanVienView NhanVienView, LoginView loginView, NhaCungCapView nhaCungCapView) {
         this.loginView =loginView;
+        this.nhaCungCapView =nhaCungCapView;
         this.NhanVienView = NhanVienView;
         this.NhanVienService = new NhanVienService();
         NhanVienView.addListNhanVienSelectionListener(new ListNhanVienSelectionListener());
@@ -26,6 +29,7 @@ public class NhanVienController {
         NhanVienView.addDeleteNhanVienListener(new DeleteNhanVienListener());
         NhanVienView.backNhanVienListener(new BackNhanVienListener());
         NhanVienView.showListNhanViens(NhanVienService.nhanViens);
+        NhanVienView.showNCCListener(new ShowNCCListener());
 
     }
 
@@ -73,6 +77,13 @@ public class NhanVienController {
         public void actionPerformed(ActionEvent e) {
             NhanVienView.setVisible(false);
             loginView.setVisible(true);
+        }
+    }
+
+    class ShowNCCListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            NhanVienView.setVisible(false);
+            nhaCungCapView.setVisible(true);
         }
     }
 

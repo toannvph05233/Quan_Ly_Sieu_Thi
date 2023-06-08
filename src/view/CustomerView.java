@@ -25,6 +25,7 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
     private JButton clearCustomerBtn;
 
     private JButton logoutBtn;
+    private JButton backBtn;
 
     private JScrollPane jScrollPaneCustomerTable;
 
@@ -63,6 +64,7 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
         deleteCustomerBtn = new JButton("Delete");
         clearCustomerBtn = new JButton("Clear");
         logoutBtn = new JButton("Logout");
+        backBtn = new JButton("Back");
 
 
         jScrollPaneCustomerTable = new JScrollPane();
@@ -108,6 +110,7 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
 
 
         panel.add(logoutBtn);
+        panel.add(backBtn);
 
         panel.add(idLabel);
         panel.add(CustomerLabel);
@@ -143,6 +146,8 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
 
         layout.putConstraint(SpringLayout.WEST, logoutBtn, 790, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, logoutBtn, 25, SpringLayout.NORTH, panel);
+layout.putConstraint(SpringLayout.WEST, backBtn, 690, SpringLayout.WEST, panel);
+        layout.putConstraint(SpringLayout.NORTH, backBtn, 25, SpringLayout.NORTH, panel);
 
 
         layout.putConstraint(SpringLayout.WEST, idCustomerField, 100, SpringLayout.WEST, panel);
@@ -286,8 +291,11 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
         clearCustomerBtn.addActionListener(listener);
     }
 
-    public void backCustomerListener(ActionListener listener) {
+    public void logoutCustomerListener(ActionListener listener) {
         logoutBtn.addActionListener(listener);
+    }
+public void backCustomerListener(ActionListener listener) {
+        backBtn.addActionListener(listener);
     }
 
 
